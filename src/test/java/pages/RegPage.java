@@ -1,12 +1,15 @@
 package pages;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponents;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegPage {
 
@@ -19,7 +22,20 @@ public class RegPage {
             userEmailInput = $("#userEmail"),
             userNumberInput = $("#userNumber"),
             userHobbiesSelect = $(byText("Sports")),
-            userGenderSelect = $(byText("Male"));
+            userSubjectSelect = $("#subjectsInput"),
+            uploadUserPicture =  $("#uploadPicture"),
+            userGenderSelect = $(byText("Male")),
+            userStateSelect = $("#react-select-3-input"),
+            userCurrentAddress = $x("//textarea[@placeholder='Current Address']"),
+            resultsTable = $("[class=table-responsive]"),
+            regButton = $("#submit"),
+            titleTable = $("#example-modal-sizes-title-lg"),
+            userCitySelect = $("#react-select-4-input"),
+            closeTableButton = $("#closeLargeModal");
+
+
+
+
 
     public RegPage openPage (){
         open("/automation-practice-form");
@@ -58,6 +74,7 @@ public class RegPage {
         return this;
 
     }
+
     public RegPage setHobbies( ){
         userHobbiesSelect.click();
 
@@ -65,11 +82,68 @@ public class RegPage {
 
     }
 
-    public void setBirthDate(String day, String month, String year){
+    public RegPage setBirthDate(String day){
         $("#dateOfBirthInput").click();
-        calendarComponents.setDate(day, month, year);
+        calendarComponents.setDate(day);
 
+        return this;
 
     }
+
+    public RegPage setSubjects(String userSubjects){
+        userSubjectSelect.setValue(userSubjects).pressEnter();
+
+        return this;
+    }
+
+    public RegPage setPicture( ){
+        uploadUserPicture.uploadFile(new File(("src/test/resources/Pictest.png")));
+
+        return this;
+
+    }
+    public RegPage setState(String userState){
+        userStateSelect.setValue(userState).pressEnter();
+
+        return this;
+    }
+
+    public RegPage setCity(String userCity){
+        userCitySelect.setValue(userCity).pressEnter();
+
+        return this;
+    }
+
+    public RegPage setCurrentAddress(String currentAddress){
+        userCurrentAddress.setValue(currentAddress);
+
+        return this;
+    }
+    public RegPage checkTitleTable( ){
+        titleTable.shouldHave(Condition.text("Thanks for submitting the form"));;
+
+        return this;
+
+    }
+    public RegPage pushButton( ){
+        regButton.click();
+
+        return this;
+
+    }
+    public RegPage checkForm(String fieldName, String value) {
+        resultsTable.$(byText(fieldName))
+                .parent().shouldHave(text(value));
+
+        return this;
+    }
+    public RegPage pushTableButton( ){
+        closeTableButton.click();
+
+        return this;
+
+    }
+
+
 
 }

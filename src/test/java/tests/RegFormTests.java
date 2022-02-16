@@ -15,13 +15,16 @@ public class RegFormTests {
     String yourLastName = "Britva";
     String yourNumberInput = "8999818907";
     String yourEmailInput = "borisbritva@gmail.com";
+    String yourSubjects = "Math";
+    String yourState = "Uttar Pradesh";
+    String yourCity = "Agra";
+    String yourCurrentAddress = "USSR";
 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl="https://demoqa.com";
     }
-
 
     @Test
     void testPracticeForm() {
@@ -32,7 +35,30 @@ public class RegFormTests {
                 .setEmailInput(yourEmailInput)
                 .setHobbies()
                 .setGender()
-                .setBirthDate("13","September","1990");
+                .setSubjects(yourSubjects)
+                .setPicture()
+                .setState(yourState)
+                .setCity(yourCity)
+                .setCurrentAddress(yourCurrentAddress)
+                .setBirthDate("13")
+                .pushButton();
+        RegPage.checkForm("Student Name",yourFirstName+" "+yourLastName)
+                .checkForm("Student Email", yourEmailInput)
+                .checkForm("Gender", "Male")
+                .checkForm("Date of Birth","13 September,1990")
+                .checkForm("Subjects",yourSubjects)
+                .checkForm("Hobbies","Sports" )
+                .checkForm("Picture","Pictest.png" )
+                .checkForm("Address",yourCurrentAddress)
+                .checkForm("State and City",yourState+" "+yourCity)
+                .checkTitleTable()
+                .pushTableButton();
+
+
+
+
+
+
 
     }
 

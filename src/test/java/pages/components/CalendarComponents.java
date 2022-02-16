@@ -3,10 +3,10 @@ package pages.components;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CalendarComponents {
-    public void setDate(String day, String month, String year){
+    public void setDate(String day){
         $("[class=react-datepicker__month-select]").selectOption("September");
         $("[class=react-datepicker__year-select").selectOption("1990");
-        $("[aria-label$='" +month+" "+day+"th, "+ year+ "']").click();
+        $(".react-datepicker__day--0"+day).click();
 
     }
 }
