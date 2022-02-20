@@ -31,7 +31,7 @@ public class RegPage {
             regButton = $("#submit"),
             titleTable = $("#example-modal-sizes-title-lg"),
             userCitySelect = $("#react-select-4-input"),
-            closeTableButton = $("#closeLargeModal");
+            tableButton = $("#closeLargeModal");
 
 
     public RegPage openPage (){
@@ -140,7 +140,7 @@ public class RegPage {
     }
 
     public RegPage clickTableButton( ){
-        closeTableButton.click();
+        tableButton.click();
 
         return this;
 
