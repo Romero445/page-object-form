@@ -52,7 +52,7 @@ public class RegFormTests {
                 .checkForm("Address",yourCurrentAddress)
                 .checkForm("State and City",yourState+" "+yourCity)
                 .checkTitleTable()
-                .clickRegButton();
+                .clickTableButton();
 
     }
 
