@@ -19,6 +19,9 @@ public class RegFormTests {
     String yourState = "Uttar Pradesh";
     String yourCity = "Agra";
     String yourCurrentAddress = "USSR";
+    String yourHobbies = "Sports";
+    String yourGender = "Male";
+    String yourPicture = "src/test/resources/Pictest.png";
 
     @BeforeAll
     static void beforeAll() {
@@ -33,10 +36,10 @@ public class RegFormTests {
                 .setLastName(yourLastName)
                 .setNumberInput(yourNumberInput)
                 .setEmailInput(yourEmailInput)
-                .setHobbies()
-                .setGender()
+                .setHobbies(yourHobbies)
+                .setGender(yourGender)
                 .setSubjects(yourSubjects)
-                .uploadPicture()
+                .uploadPicture(yourPicture)
                 .setState(yourState)
                 .setCity(yourCity)
                 .setCurrentAddress(yourCurrentAddress)

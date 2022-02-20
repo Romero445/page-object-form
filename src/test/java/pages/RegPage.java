@@ -21,10 +21,7 @@ public class RegPage {
             lastNameInput =  $("#lastName"),
             userEmailInput = $("#userEmail"),
             userNumberInput = $("#userNumber"),
-            userHobbiesSelect = $(byText("Sports")),
             userSubjectSelect = $("#subjectsInput"),
-            uploadUserPicture =  $("#uploadPicture"),
-            userGenderSelect = $(byText("Male")),
             userStateSelect = $("#react-select-3-input"),
             userCurrentAddress = $x("//textarea[@placeholder='Current Address']"),
             resultsTable = $("[class=table-responsive]"),
@@ -65,15 +62,15 @@ public class RegPage {
         return this;
     }
 
-    public RegPage setGender( ){
-        userGenderSelect.click();
+    public RegPage setGender(String gender){
+        $(byText(gender)).click();
 
         return this;
 
     }
 
-    public RegPage setHobbies( ){
-        userHobbiesSelect.click();
+    public RegPage setHobbies(String hobbies ){
+        $(byText(hobbies)).click();
 
         return this;
 
@@ -93,8 +90,8 @@ public class RegPage {
         return this;
     }
 
-    public RegPage uploadPicture( ){
-        uploadUserPicture.uploadFile(new File(("src/test/resources/Pictest.png")));
+    public RegPage uploadPicture(String srcFile ){
+        $("#uploadPicture").uploadFile(new File((srcFile)));
 
         return this;
 
