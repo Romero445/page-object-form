@@ -36,12 +36,12 @@ public class RegFormTests {
                 .setHobbies()
                 .setGender()
                 .setSubjects(yourSubjects)
-                .setPicture()
+                .uploadPicture()
                 .setState(yourState)
                 .setCity(yourCity)
                 .setCurrentAddress(yourCurrentAddress)
                 .setBirthDate("13")
-                .pushButton();
+                .clickRegButton();
         RegPage.checkForm("Student Name",yourFirstName+" "+yourLastName)
                 .checkForm("Student Email", yourEmailInput)
                 .checkForm("Gender", "Male")
@@ -52,13 +52,7 @@ public class RegFormTests {
                 .checkForm("Address",yourCurrentAddress)
                 .checkForm("State and City",yourState+" "+yourCity)
                 .checkTitleTable()
-                .pushTableButton();
-
-
-
-
-
-
+                .clickRegButton();
 
     }
 

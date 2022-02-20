@@ -34,9 +34,6 @@ public class RegPage {
             closeTableButton = $("#closeLargeModal");
 
 
-
-
-
     public RegPage openPage (){
         open("/automation-practice-form");
 
@@ -96,12 +93,13 @@ public class RegPage {
         return this;
     }
 
-    public RegPage setPicture( ){
+    public RegPage uploadPicture( ){
         uploadUserPicture.uploadFile(new File(("src/test/resources/Pictest.png")));
 
         return this;
 
     }
+
     public RegPage setState(String userState){
         userStateSelect.setValue(userState).pressEnter();
 
@@ -119,31 +117,33 @@ public class RegPage {
 
         return this;
     }
+
     public RegPage checkTitleTable( ){
         titleTable.shouldHave(Condition.text("Thanks for submitting the form"));;
 
         return this;
 
     }
-    public RegPage pushButton( ){
+
+    public RegPage clickRegButton( ){
         regButton.click();
 
         return this;
 
     }
+
     public RegPage checkForm(String fieldName, String value) {
         resultsTable.$(byText(fieldName))
                 .parent().shouldHave(text(value));
 
         return this;
     }
-    public RegPage pushTableButton( ){
+
+    public RegPage clickTableButton( ){
         closeTableButton.click();
 
         return this;
 
     }
-
-
 
 }
